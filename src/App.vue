@@ -2,13 +2,15 @@
 import axios from "axios";
 import AppHeader from './components/AppHeader.vue';
 import AppMovieList from './components/AppMovieList.vue';
+import AppSingleMovie from "./components/AppSingleMovie.vue";
 import { store } from './store'
 
 export default{
 
 components: {
 AppHeader, 
-AppMovieList
+AppMovieList, 
+AppSingleMovie
 }, 
 
 data(){
@@ -20,14 +22,13 @@ data(){
 methods: {
 
   getMovies(){
-
+      
       this.store.loading = true;
-      axios.get('https://api.themoviedb.org/3/search/movie?api_key=58acd0e327568914bcb60892cb3ab70a&query="ciao"&language=en-US').then((res) => {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=58acd0e327568914bcb60892cb3ab70a&query=${store.query}`).then((res) => {
       this.store.moviesList = res.data.results;
       this.store.loading = false;
-
+      
       });
-
   }, 
 
 }, 
@@ -43,7 +44,7 @@ created(){
 
 <template>
 
-<AppHeader />
+<AppHeader  @searchMovie="getMovies" />
 <AppMovieList />
 
 <div class="container">

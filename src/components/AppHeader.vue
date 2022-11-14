@@ -1,12 +1,15 @@
 <script>
+import { store } from '../store'
+
 
 export default{
     name: 'Appheader', 
 
     data(){
         return{
-            
+            store, 
         }
+    
     }
 }
 
@@ -22,9 +25,8 @@ export default{
     <div>logo</div>
 
     <div>
-        <input type="text" placeholder="Cerca film">
-        <button>Vai</button>
-
+        <input type="text" placeholder="Cerca film" v-model="store.query">
+        <button @click="$emit('searchMovie')">Vai</button>
     </div>
 
 </header>
