@@ -1,19 +1,24 @@
 <script>
+import AppHeader from './components/AppHeader.vue';
+import AppMovieList from './components/AppMovieList.vue';
+
 
 export default{
 
 components: {
-
+AppHeader, 
+AppMovieList
 }, 
 
 data(){
   return{
     message : "hello"
   }
+}, 
+
+methods: {
+
 }
-
-
-
 
 
 }
@@ -23,7 +28,13 @@ data(){
 
 <template>
 
-<div class="container"><h1>{{message}}</h1></div>
+<AppHeader />
+<AppMovieList />
+
+<div class="container">
+
+</div>
+
 
 </template>
 
