@@ -72,8 +72,6 @@ h2{
     margin-bottom: 10px;
     width: calc(100% / 3 - 10px );
     height: 400px;
-    border: 1px solid black;
-    background-color: aquamarine;
 }
 
 

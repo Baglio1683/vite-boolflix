@@ -86,6 +86,10 @@ export default{
     z-index: 99;
 }
 
+.card:hover .poster_img{
+    display: none;
+}
+
 
 
 </style>
