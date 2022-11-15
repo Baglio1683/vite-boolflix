@@ -69,12 +69,10 @@ created(){
 <template>
 
 <AppHeader  @searchMovie="SearchMoviesAndSeries" />
-<AppMovieList />
 
-
-
-<div class="container">
-</div>
+<main>
+  <AppMovieList />  
+</main>
 
 
 </template>
@@ -83,6 +81,10 @@ created(){
 <style lang="scss">
 @use './styles/general.scss'; 
 
+main{
+  height: 85vh;
+  overflow-y: scroll;
+}
 
 h1{
   color: red; 

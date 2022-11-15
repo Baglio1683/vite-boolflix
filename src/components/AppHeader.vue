@@ -22,7 +22,7 @@ export default{
 
 <header>
 
-    <div>logo</div>
+    <div class="logo">BOOLFIX</div>
 
     <div>
         <input type="search" placeholder="Cerca film e serie TV" v-model="store.query">
@@ -42,6 +42,31 @@ header{
     align-content: flex-start;
     align-items: center;
     padding: 1rem;
-}
+    height: 15vh;
+    background-color: black;
+
+    .logo{
+        color: red; 
+    }
+
+    input{
+        display: inline-block;
+        height: 50px;
+        }
+
+     input:focus {
+        outline-width: 0;
+     }
+
+     button{
+        width: 50px;
+        height: 50px;
+
+     }
+
+                                                        
+    }
+
+
 
 </style>

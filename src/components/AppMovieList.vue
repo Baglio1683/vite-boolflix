@@ -25,18 +25,23 @@ export default{
 
 <template>
 
+
+<h2>Lista Film</h2>
+
 <div class="container">
 
-     <h2>Lista Film</h2>
 
     <div class="card" v-for="(mov) in store.moviesList">
 
         <AppSingleMovie :movie="mov" />
 
     </div> 
+</div>
 
-    <h2>Lista Serie TV</h2>
-    
+
+
+<h2>Lista Serie TV</h2>
+<div class="container">
      <div class="card" v-for="(ser) in store.seriesList">
         
         <AppSingleMovie :movie="ser" />
@@ -50,11 +55,25 @@ export default{
 
 <style lang="scss" scoped>
 
+
+
+
+h2{
+    width: 100%;
+    text-align: center; 
+    padding: 1rem;
+}
+
+
+
 .card{
+    position: relative;
     margin-right: 10px;
     margin-bottom: 10px;
     width: calc(100% / 3 - 10px );
+    height: 400px;
     border: 1px solid black;
+    background-color: aquamarine;
 }
 
 
