@@ -24,7 +24,7 @@ export default{
 
         getPosterImage(posterImg){
          
-        return `https://image.tmdb.org/t/p/w300${posterImg}`; 
+        return `https://image.tmdb.org/t/p/w342${posterImg}`; 
 
          },
 
