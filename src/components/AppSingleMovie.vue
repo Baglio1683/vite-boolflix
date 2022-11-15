@@ -19,8 +19,13 @@ export default{
 
         getImgUrl(imgName) {
             return new URL(`../assets/img/${imgName}.png`, import.meta.url).href;
-        }
-    },
+        },
+
+        getPosterImage(posterImg){
+         
+        return `https://image.tmdb.org/t/p/w300${posterImg}`; 
+
+         },
 
     computed: {
 
@@ -31,9 +36,12 @@ export default{
         getOriginalTitle(){
             return this.movie.original_title ? this.movie.original_title : this.movie.original_name;
         }, 
-    }
+        
 
-}
+     }, 
+  
+   }
+  }
 
 </script>
 
@@ -45,6 +53,8 @@ export default{
     <img v-if="flags.includes(movie.original_language)" :src="getImgUrl(movie.original_language)" alt="">
     <p v-else>lingua originale : {{movie.original_language}}</p>
     <p>Voto : {{movie.vote_average}}</p>
+    <img :src="getPosterImage(movie.poster_path)" alt="">
+
 
 </template>
 
