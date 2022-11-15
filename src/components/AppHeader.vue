@@ -25,7 +25,7 @@ export default{
     <div>logo</div>
 
     <div>
-        <input type="text" placeholder="Cerca film" v-model="store.query">
+        <input type="search" placeholder="Cerca film e serie TV" v-model="store.query">
         <button @click="$emit('searchMovie')">Vai</button>
     </div>
 

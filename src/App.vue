@@ -3,14 +3,14 @@ import axios from "axios";
 import AppHeader from './components/AppHeader.vue';
 import AppMovieList from './components/AppMovieList.vue';
 import AppSingleMovie from "./components/AppSingleMovie.vue";
-import { store } from './store'
+import { store } from './store'; 
 
 export default{
 
 components: {
 AppHeader, 
 AppMovieList, 
-AppSingleMovie
+AppSingleMovie,
 }, 
 
 data(){
@@ -21,20 +21,44 @@ data(){
 
 methods: {
 
+  SearchMoviesAndSeries(){
+
+    this.getMovies(); 
+    this.getSeries(); 
+  },
+  
+  
   getMovies(){
       
       this.store.loading = true;
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=58acd0e327568914bcb60892cb3ab70a&query=${store.query}`).then((res) => {
+      axios.get(`${store.apiUrlMovie}${store.query}`).then((res) => {
       this.store.moviesList = res.data.results;
       this.store.loading = false;
       
-      });
-  }, 
+      }).catch(err => {
+          console.log(err);
+        });
+      }, 
+
+      getSeries(){
+      
+      this.store.loading = true;
+      axios.get(`${store.apiUrlSeires}${store.query}`).then((res) => {
+      this.store.seriesList = res.data.results;
+      this.store.loading = false;
+      
+      }).catch(err => {
+          console.log(err);
+        });
+      }, 
+
 
 }, 
 
 created(){
-    this.getMovies()
+
+    this.SearchMoviesAndSeries();
+ 
   }
 
 }
@@ -44,11 +68,12 @@ created(){
 
 <template>
 
-<AppHeader  @searchMovie="getMovies" />
+<AppHeader  @searchMovie="SearchMoviesAndSeries" />
 <AppMovieList />
 
-<div class="container">
 
+
+<div class="container">
 </div>
 
 

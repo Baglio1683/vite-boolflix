@@ -27,12 +27,21 @@ export default{
 
 <div class="container">
 
+     <h2>Lista Film</h2>
+
     <div class="card" v-for="(mov) in store.moviesList">
 
         <AppSingleMovie :movie="mov" />
 
     </div> 
+
+    <h2>Lista Serie TV</h2>
     
+     <div class="card" v-for="(ser) in store.seriesList">
+        
+        <AppSingleMovie :movie="ser" />
+
+     </div>
 </div>  
 
 </template>
@@ -45,6 +54,7 @@ export default{
     margin-right: 10px;
     margin-bottom: 10px;
     width: calc(100% / 3 - 10px );
+    border: 1px solid black;
 }
 
 
