@@ -55,7 +55,6 @@ export default{
     <p>Voto : {{movie.vote_average}}</p>
     <img :src="getPosterImage(movie.poster_path)" alt="">
 
-
 </template>
 
 <style>
