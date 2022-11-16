@@ -64,7 +64,9 @@ h2{
     padding: 1rem;
 }
 
-
+.container{
+    perspective: 2500px; 
+}
 
 .card{
     display: flex;

@@ -142,7 +142,6 @@ export default{
         left: 0;
         z-index: 99;
         transition: visibility 1.5s;
-        perspective: 1000px;
     }
 
     .card:hover .card_img{
