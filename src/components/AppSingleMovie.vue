@@ -107,7 +107,7 @@ export default{
     <img v-if="flags.includes(movie.original_language)" :src="getImgUrl(movie.original_language)"  class="flag_img" alt="">
     <p v-else>lingua originale : {{movie.original_language}}</p>
     <p>Il voto è: {{getVote}} <i v-for="(item) in counterStarfull" class="fa-solid fa-star"></i> <i v-for="(itm) in counterStarEmpty" class="fa-regular fa-star"></i></p>
-    <img v-if="movie.poster_path" :src="getPosterImage(movie.poster_path)" alt="" class="poster_img">
+    <img v-if="movie.poster_path" :src="getPosterImage(movie.poster_path)" alt="" class="poster_img rotation_poster">
     <img v-else src="../assets/img/no_available.jpeg" alt="" class="poster_img">
 </div>
 
@@ -134,10 +134,32 @@ export default{
         top: 0;
         left: 0;
         z-index: 99;
+        transition: visibility 3s;
     }
 
     .card:hover .poster_img{
-        display: none;
+        visibility: hidden;
     }
+
+    .card:hover .rotation_poster{
+     animation-name: rotationPoster;
+     animation-timing-function: linear; 
+     animation-duration: 3s;
+    }
+
+     @keyframes rotationPoster{
+        0%   {transform: rotateY(0deg)}
+        25%  {transform: rotateY(45deg);}
+        50%  {transform: rotateY(90deg);}
+        75%  {transform: rotateY(135deg);}
+        100% {transform: rotateY(180deg);}
+     }
+
+
+
+    // .card:hover .poster_img{
+    //     display: none;
+    //     transform: rotateY(180deg);
+    // }
 
 </style>
