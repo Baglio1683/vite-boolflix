@@ -84,6 +84,7 @@ created(){
 main{
   height: 85vh;
   overflow-y: scroll;
+  background-color: lightgrey;
 }
 
 h1{

@@ -67,11 +67,16 @@ h2{
 
 
 .card{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     position: relative;
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: calc(100% / 3 - 10px );
     height: 400px;
+    background-color: rgb(97, 97, 97);
+    padding: 1rem;
 }
 
 
