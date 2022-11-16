@@ -7,7 +7,8 @@ export default{
      data(){
         return{
          flags: ['en' , 'it'], 
-         counter: [1]
+         counterStarfull: [], 
+         conterStarEmpty: [],
         }
      },
 
@@ -43,17 +44,53 @@ export default{
         
         getVote(){
 
-             const i = parseInt(this.movie.vote_average)
-             console.log(i)
+             const i = Math.ceil(this.movie.vote_average)
 
-             let newcount =[]
-             newcount.length = i
+             let y; 
+             let k;
+
+             if(i === 9 || i === 10){
+                 y = 5
+                 k = 0
+             }
+
+             if(i === 8 || i === 7){
+                y = 4
+                k = 1
+            }
+
+            if(i === 6 || i === 5){
+                y = 3
+                k = 2
+            }
+
+            if(i === 4 || i === 3){
+                y = 2
+                k = 3
+            }
+
+            if(i === 2 || i === 1){
+                y = 1
+                k = 4
+            }
+
+            if(i === 0){
+                y = 0
+                k = 5
+            }
+
+             let newcount = []
+             newcount.length = y
              console.log(newcount)
 
-             this.counter = newcount
-             console.log(this.counter)
-             
-             return this.movie.vote_average
+             let newcount2 = []
+             newcount2.length = k
+
+
+             this.counterStarfull = newcount
+             this.counterStarEmpty = newcount2
+
+             return i
 
             },
 
@@ -69,7 +106,7 @@ export default{
     <h3>Titolo originale : {{getOriginalTitle}}</h3>
     <img v-if="flags.includes(movie.original_language)" :src="getImgUrl(movie.original_language)"  class="flag_img" alt="">
     <p v-else>lingua originale : {{movie.original_language}}</p>
-    <p>Il voto è: {{getVote}} <i v-for="(item) in counter" class="fa-solid fa-star"></i></p>
+    <p>Il voto è: {{getVote}} <i v-for="(item) in counterStarfull" class="fa-solid fa-star"></i> <i v-for="(itm) in counterStarEmpty" class="fa-regular fa-star"></i></p>
     <img v-if="movie.poster_path" :src="getPosterImage(movie.poster_path)" alt="" class="poster_img">
     <img v-else src="../assets/img/no_available.jpeg" alt="" class="poster_img">
 </div>
