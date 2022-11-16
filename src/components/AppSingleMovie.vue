@@ -101,14 +101,21 @@ export default{
 
 <template>
 
-<div>
-    <h2>Titolo : {{getTitle}}</h2>
-    <h3>Titolo originale : {{getOriginalTitle}}</h3>
-    <img v-if="flags.includes(movie.original_language)" :src="getImgUrl(movie.original_language)"  class="flag_img" alt="">
-    <p v-else>lingua originale : {{movie.original_language}}</p>
-    <p>Il voto è: {{getVote}} <i v-for="(item) in counterStarfull" class="fa-solid fa-star"></i> <i v-for="(itm) in counterStarEmpty" class="fa-regular fa-star"></i></p>
-    <img v-if="movie.poster_path" :src="getPosterImage(movie.poster_path)" alt="" class="poster_img rotation_poster">
-    <img v-else src="../assets/img/no_available.jpeg" alt="" class="poster_img">
+<div class="main_card">
+
+   <div class="card_text">
+        <h2>Titolo : {{getTitle}}</h2>
+        <h3>Titolo originale : {{getOriginalTitle}}</h3>
+        <img v-if="flags.includes(movie.original_language)" :src="getImgUrl(movie.original_language)"  class="flag_img" alt="">
+        <p v-else>lingua originale : {{movie.original_language}}</p>
+        <p>Il voto è: {{getVote}} <i v-for="(item) in counterStarfull" class="fa-solid fa-star"></i> <i v-for="(itm) in counterStarEmpty" class="fa-regular fa-star"></i></p>
+    </div>
+
+    <div class="card_img">
+        <img v-if="movie.poster_path" :src="getPosterImage(movie.poster_path)" alt="" class="poster_img">
+        <img v-else src="../assets/img/no_available.jpeg" alt="" class="poster_img">
+    </div>
+
 </div>
 
 </template>
@@ -134,32 +141,27 @@ export default{
         top: 0;
         left: 0;
         z-index: 99;
-        transition: visibility 3s;
+        transition: visibility 1.5s;
+        perspective: 1000px;
     }
 
-    .card:hover .poster_img{
+    .card:hover .card_img{
         visibility: hidden;
     }
 
-    .card:hover .rotation_poster{
-     animation-name: rotationPoster;
-     animation-timing-function: linear; 
-     animation-duration: 3s;
+    .card:hover .card_text{
+        animation-name: rotationText;
+        animation-timing-function: linear; 
+        animation-duration: 3s;
     }
 
-     @keyframes rotationPoster{
-        0%   {transform: rotateY(0deg)}
+    @keyframes rotationText{
+        0%   {transform: rotateY(0deg);}
         25%  {transform: rotateY(45deg);}
         50%  {transform: rotateY(90deg);}
         75%  {transform: rotateY(135deg);}
-        100% {transform: rotateY(180deg);}
+        100% {transform: rotateY(180deg)}
      }
 
-
-
-    // .card:hover .poster_img{
-    //     display: none;
-    //     transform: rotateY(180deg);
-    // }
 
 </style>

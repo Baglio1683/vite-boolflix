@@ -68,7 +68,7 @@ h2{
 
 .card{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     position: relative;
     margin-right: 10px;
@@ -81,7 +81,18 @@ h2{
     color: white;
 }
 
+    .card:hover {
+     animation-name: rotationPoster;
+     animation-timing-function: linear; 
+     animation-duration: 3s;
+    }
 
-
+     @keyframes rotationPoster{
+        0%   {transform: rotateY(0deg);}
+        25%  {transform: rotateY(45deg);}
+        50%  {transform: rotateY(90deg);}
+        75%  {transform: rotateY(135deg);}
+        100% {transform: rotateY(180deg)}
+     }
 
 </style>
